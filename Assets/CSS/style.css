@@ -64,3 +64,87 @@ button:hover {
     margin-right: 5px;
   }
   
+
+/* Styling for timer display */
+#timer {
+    font-size: 24px;
+  }
+  
+  /* Hide class for elements */
+  .hide {
+    display: none;
+  }
+  
+  /* Styling for question container */
+  #question-container {
+    position: relative;
+    text-align: center;
+  }
+  
+  /* Styling for options container */
+  #options-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Styling for answer buttons */
+  button.answer-btn {
+    background-color: #008CBA;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  /* Hover effect for answer buttons */
+  button.answer-btn:hover {
+    background-color: #00506b;
+  }
+  
+  /* Styling for feedback container */
+  #feedback-container {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  /* Styling for score container */
+  #score-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Styling for initials input */
+  #initials {
+    padding: 8px;
+    margin-top: 10px;
+  }
+  
+  /* Styling for save score button */
+  #save-score-btn {
+    margin-top: 10px;
+  }
+  
+  /* Styling for start button */
+  #start-btn {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Styling for high scores button */
+  #high-scores-btn {
+    background-color: #008CBA;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Hover effect for high scores button */
+  #high-scores-btn:hover {
+    background-color: #00506b;
+  }
