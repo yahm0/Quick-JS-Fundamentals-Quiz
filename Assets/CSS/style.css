@@ -48,3 +48,19 @@ button:hover {
     background-color: #1f1f1f;
   }
   
+
+  /* Styling for timer container */
+#timer-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  /* Styling for time label */
+#time-label {
+    font-size: 24px;
+    color: #000000;
+    margin-right: 5px;
+  }
+  
