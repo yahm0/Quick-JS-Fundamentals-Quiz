@@ -6,3 +6,44 @@
   <link rel="stylesheet" href="./Assests/CSS/style.css"> <!-- Link to external CSS file -->
   <title>JavaScript Quiz</title>
 </head>
+
+<body>
+    <!-- Timer container -->
+    <div id="timer-container">
+      <span id="time-label">Time Left:</span>
+      <span id="timer">100</span>
+    </div>
+    
+    <!-- Main quiz container -->
+    <div id="quiz-container">
+      <h1>JavaScript Quiz</h1>
+      
+      <!-- Start Quiz button -->
+      <button id="start-btn">Start Quiz</button>
+      
+      <!-- Question container (initially hidden) -->
+      <div id="question-container" class="hide">
+        <p id="question-text"></p>
+        
+        <!-- Options container for answer buttons -->
+        <div id="options-container"></div>
+      </div>
+      
+      <!-- Feedback container (initially hidden) -->
+      <div id="feedback-container" class="hide"></div>
+      
+      <!-- Score container (initially hidden) -->
+      <div id="score-container" class="hide">
+        <label for="initials">Enter Initials:</label>
+        <input type="text" id="initials">
+        <button id="save-score-btn">Save Score</button>
+      </div>
+      
+      <!-- High Scores button -->
+      <button id="high-scores-btn">High Scores</button>
+    </div>
+    
+    <!-- Script tag to include JavaScript file -->
+    <script src="./Assests/JS/script.js"></script>
+  </body>
+  </html>
