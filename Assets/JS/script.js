@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentQIndex = 0;
     let score = 0;
     let timer;
-
+// Questions and Answers for the quiz
     const questions = [
         {
           question: 'What does the acronym DOM stand for in JavaScript?',
