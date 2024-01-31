@@ -87,10 +87,86 @@ document.addEventListener('DOMContentLoaded', function () {
 
    // Function to display the next question
    function nextQuestion() {
-    if (currentQuestionIndex < questions.length) {
-      displayQuestion(questions[currentQuestionIndex]);
+    if (currentQIndex < questions.length) {
+      displayQuestion(questions[currentQIndex]);
     } else {
       endQuiz();
     }
   }
-  
+
+   // Function to display a question
+   function displayQuestion(question) {
+    feedbackContainer.innerText = '';
+    document.getElementById('question-text').innerText = question.question;
+
+    optionsContainer.innerHTML = '';
+    question.options.forEach((option, index) => {
+      const button = document.createElement('button');
+      button.innerText = option;
+      button.addEventListener('click', () => checkAnswer(question, option));
+      optionsContainer.appendChild(button);
+    });
+  }
+
+
+    // Function to check the answer
+    function checkAnswer(question, selectedOption) {
+        const feedbackContainer = document.getElementById('feedback-container');
+      
+        if (selectedOption === question.correctAnswer) {
+          score++;
+          feedbackContainer.innerText = 'Correct!';
+        } else {
+          feedbackContainer.innerText = 'Wrong!';
+          updateTimer(-10); // Penalty for wrong answer (adjust as needed)
+        }
+      
+        // Show the feedback container
+        feedbackContainer.classList.remove('hide');
+      
+        currentQIndex++;
+        nextQuestion();
+      }
+    
+
+        // Function to update the timer
+  function updateTimer(seconds = -1) {
+    const timeRemaining = parseInt(timerElement.innerText, 10);
+    const newTime = Math.max(timeRemaining + seconds, 0);
+    timerElement.innerText = newTime;
+
+    if (newTime === 0) {
+      endQuiz();
+    }
+  }
+
+  // Function to end the quiz
+  function endQuiz() {
+    clearInterval(timer);
+    questionContainer.classList.add('hide');
+    highScoresButton.classList.remove('hide'); // Show high scores button after the quiz
+    scoreContainer.classList.remove('hide');
+  }
+
+  // Function to save the score
+  function saveScore() {
+    const initials = initialsInput.value.trim();
+    if (initials !== '') {
+      // Handle localStorage operations and potential errors
+      const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+      const newScore = { initials, score };
+      highScores.push(newScore);
+      localStorage.setItem('highScores', JSON.stringify(highScores));
+      alert('High Scores:\n' + highScores.map(score => `${score.initials}: ${score.score}`).join('\n'));
+    }
+  }
+
+  // Function to view high scores
+  function viewHighScores() {
+    const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+    const highScoresMessage = highScores.length > 0 ?
+      'High Scores:\n' + highScores.map(score => `${score.initials}: ${score.score}`).join('\n') :
+      'No high scores yet.';
+    alert(highScoresMessage);
+  }
+});
