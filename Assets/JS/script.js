@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentQIndex = 0;
     let score = 0;
     let timer;
-    
+
     const questions = [
         {
           question: 'What does the acronym DOM stand for in JavaScript?',
@@ -68,3 +68,29 @@ document.addEventListener('DOMContentLoaded', function () {
           correctAnswer: 'To parse a JSON string and convert it into a JavaScript object'
         }
       ];
+
+
+  // Event listeners for buttons
+  startButton.addEventListener('click', startQuiz);
+  highScoresButton.addEventListener('click', viewHighScores);
+  saveScoreButton.addEventListener('click', saveScore);
+
+   // Function to start the quiz
+   function startQuiz() {
+    startButton.classList.add('hide');
+    highScoresButton.classList.add('hide'); // Hide high scores button during the quiz
+    questionContainer.classList.remove('hide');
+    nextQuestion();
+    timer = setInterval(updateTimer, 1000);
+  }
+
+
+   // Function to display the next question
+   function nextQuestion() {
+    if (currentQuestionIndex < questions.length) {
+      displayQuestion(questions[currentQuestionIndex]);
+    } else {
+      endQuiz();
+    }
+  }
+  
